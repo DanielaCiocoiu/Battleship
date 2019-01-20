@@ -3,13 +3,25 @@ var model = {
 	numShips: 3,
 	shipLength: 3,
 	shipsSunk: 0,
-	
+	//fiecare obiect ship are o proprietate locatie - un array cu 3 locatii si un array de trei hits
 	ships: [
-		{ locations: [0, 0, 0], hits: ["", "", ""] },
-		{ locations: [0, 0, 0], hits: ["", "", ""] },
-		{ locations: [0, 0, 0], hits: ["", "", ""] }
+		{ locations: ["06", "16", "26"], hits: ["", "", ""] },
+		{ locations: ["24", "34", "44"], hits: ["", "", ""] },
+		{ locations: ["10", "11", "12"], hits: ["", "", ""] }
 	],
 
+fire: function (guess){
+	for(var i=0; i<this.numShips; i++){ //stepping through each ship
+		var ships = this.ships[i]; //am nava
+		var location = ship.locations; //obtin locatia 
+		var index = location.indexOf(guess);// indexOf ia valoarea si ii returneaza indexul ghicit 
+		if(index>0){
+			ship.hits[index] ="hit";
+			return true;
+		}
+	}
+	return false;
+}
 var view = {
 
 
