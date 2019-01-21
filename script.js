@@ -15,13 +15,24 @@ fire: function (guess){
 		var ships = this.ships[i]; //am nava
 		var location = ship.locations; //obtin locatia 
 		var index = location.indexOf(guess);// indexOf ia valoarea si ii returneaza indexul ghicit 
-		if(index>0){
-			ship.hits[index] ="hit";
-			return true;
+		if (ship.hits[index] === "hit") {
+				view.displayMessage("Oops, you already hit that location!");
+				return true;
+	} else if (index >= 0) {
+				ship.hits[index] = "hit";
+				view.displayHit(guess);
+				view.displayMessage("HIT!");
+
+				if (this.isSunk(ship)) {
+					view.displayMessage("You sank my battleship!");
+					this.shipsSunk++;
+				}
+				return true;
+			}
 		}
-	}
-	return false;
-}
+
+
+
 var view = {
 
 
