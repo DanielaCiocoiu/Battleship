@@ -30,7 +30,10 @@ fire: function (guess){
 				return true;
 			}
 		}
-
+view.displayMiss(guess);
+		view.displayMessage("You missed.");
+		return false;
+	},
 
 
 var view = {
